@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 60" width="160" height="60">
+  <rect width="160" height="60" fill="#003366"/>
+  <text x="80" y="40" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="26" fill="#fff" text-anchor="middle" letter-spacing="1">BFM</text>
+  <rect x="105" y="14" width="44" height="32" fill="#e30613"/>
+  <text x="127" y="40" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="22" fill="#fff" text-anchor="middle">TV</text>
+</svg>

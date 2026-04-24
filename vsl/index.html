@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brûle 24h — Santé</title>
+  <meta name="description" content="Dre. Claire Fontaine révèle un rituel simple pour brûler les graisses 24h sur 24, sans restriction alimentaire.">
+
+  <!-- VTurb Preload (TODO: trocar ID quando VSL ficar pronta) -->
+  <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+  <link rel="preload" href="https://scripts.converteai.net/00c3b583-8874-4e64-a32e-65f6dd9ba521/ab-test/PLACEHOLDER/player.js" as="script" fetchpriority="high">
+  <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+
+  <link rel="dns-prefetch" href="https://cdn.converteai.net">
+  <link rel="dns-prefetch" href="https://scripts.converteai.net">
+  <link rel="dns-prefetch" href="https://images.converteai.net">
+  <link rel="dns-prefetch" href="https://m3u8.vturb.net">
+  <link rel="dns-prefetch" href="https://api.vturb.com.br">
+  <link rel="dns-prefetch" href="https://cdn.utmify.com.br">
+
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    body{background:#fff;min-height:100vh;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#333;-webkit-font-smoothing:antialiased}
+    [hidden]{display:none!important}
+
+    /* Top bar */
+    .top-bar{background:#d32f2f;padding:10px 16px 0;text-align:center}
+    .top-bar h1{font-size:22px;font-weight:800;color:#fff;letter-spacing:3px;text-transform:uppercase;margin-bottom:6px}
+    .ticker{overflow:hidden;white-space:nowrap;background:#d32f2f;padding-bottom:8px}
+    .ticker-track{display:inline-block;animation:scroll-left 28s linear infinite;font-size:12px;font-weight:600;color:#fff;letter-spacing:1px;text-transform:uppercase;opacity:.95}
+    .ticker-track span{margin:0 24px}
+    @keyframes scroll-left{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+    /* Byline */
+    .byline{max-width:700px;margin:0 auto;padding:18px 20px 8px;display:flex;align-items:center;gap:12px;font-size:13px;color:#555}
+    .byline .author{font-weight:700;color:#1a1a1a}
+    .byline .sep{color:#ccc}
+    .byline .date{color:#888}
+
+    /* Video */
+    .video-section{display:flex;justify-content:center;padding:16px 20px 24px}
+    .video-container{width:100%;max-width:400px}
+
+    /* Media logos */
+    .media-logos{max-width:700px;margin:0 auto;padding:18px 20px 28px;display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;border-bottom:1px solid #e5e5e5}
+    .media-logos .label{width:100%;text-align:center;font-size:11px;letter-spacing:2px;color:#888;text-transform:uppercase;font-weight:600;margin-bottom:6px}
+    .media-logos img{height:32px;width:auto;opacity:.7;filter:grayscale(100%);transition:opacity .25s,filter .25s}
+    .media-logos img:hover{opacity:1;filter:grayscale(0)}
+
+    /* Comments - Facebook style */
+    .comments{max-width:960px;margin:0 auto;padding:32px 20px 56px;font-family:"Segoe UI","Segoe UI Historic",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}
+    .comments-header{font-size:26px;font-weight:700;color:#1c1e21;margin-bottom:18px;letter-spacing:-.3px}
+    .comments-list{border:1px solid #dddfe2;border-radius:14px;padding:20px 24px;background:#fff}
+    .comment{display:flex;gap:12px;padding:10px 0;align-items:flex-start}
+    .comment.is-reply{margin-left:50px}
+    .avatar{width:50px;height:50px;border-radius:50%;object-fit:cover;flex-shrink:0;background:#e4e6eb}
+    .comment-body{flex:1;min-width:0;position:relative}
+    .comment-bubble{position:relative;background:#f0f2f5;border-radius:18px;padding:10px 22px 14px;display:block;margin-bottom:8px}
+    .comment-name{font-size:15px;font-weight:700;color:#385898;margin-bottom:3px;line-height:1.3}
+    .comment-text{font-size:15px;color:#1c1e21;line-height:1.4;word-wrap:break-word;word-break:break-word}
+    .comment-meta{display:flex;align-items:center;gap:8px;font-size:13px;color:#65676b;padding:0 22px;font-weight:400}
+    .comment-meta .act{cursor:pointer;font-weight:600}
+    .comment-meta .act:hover{text-decoration:underline}
+    .comment-meta .dot{color:#65676b;font-weight:700}
+    .comment-reactions{position:absolute;right:18px;bottom:-2px;display:inline-flex;align-items:center;gap:0;background:#fff;border:1px solid #dddfe2;border-radius:14px;padding:2px 8px 2px 3px;font-size:13px;color:#65676b;box-shadow:0 1px 2px rgba(0,0,0,0.1);font-weight:400;z-index:2}
+    .comment-reactions .emoji{font-size:11px;line-height:1;display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;border:1.5px solid #fff}
+    .comment-reactions .emoji.like{background:linear-gradient(180deg,#2e89ff 0%,#0866ff 100%);color:#fff}
+    .comment-reactions .emoji.like svg{width:10px;height:10px;fill:#fff}
+    .comment-reactions .emoji.heart{background:linear-gradient(180deg,#ff7384 0%,#f33e58 100%);color:#fff;margin-left:-6px}
+    .comment-reactions .count{margin-left:5px}
+
+    /* Post-pitch sections */
+    .post-pitch{opacity:0;transition:opacity .5s}
+    .post-pitch.is-visible{opacity:1}
+    .section{max-width:760px;margin:0 auto;padding:48px 24px}
+
+    .guarantee{background:#fdf9f0;border-top:1px solid #f0e7c8;border-bottom:1px solid #f0e7c8}
+    .guarantee-inner{max-width:760px;margin:0 auto;padding:48px 24px;display:flex;align-items:center;gap:32px}
+    .guarantee-seal{flex-shrink:0;width:140px;height:140px}
+    .guarantee-text h2{font-size:24px;font-weight:800;color:#1a1a1a;margin-bottom:10px;line-height:1.3}
+    .guarantee-text p{font-size:15px;color:#444;line-height:1.6;margin-bottom:12px}
+    .guarantee-text p:last-child{margin-bottom:0}
+
+    .doctor-bio .doctor-grid{display:grid;grid-template-columns:280px 1fr;gap:36px;align-items:start}
+    .doctor-bio img{width:280px;height:280px;border-radius:16px;object-fit:cover;background:#e5e7eb}
+    .doctor-bio h2{font-size:28px;font-weight:800;color:#1a1a1a;margin-bottom:18px;line-height:1.2}
+    .doctor-bio p{font-size:15px;color:#444;line-height:1.7;margin-bottom:14px}
+    .doctor-bio p:last-child{margin-bottom:0}
+
+    .before-after h2{font-size:28px;font-weight:800;color:#1a1a1a;margin-bottom:24px;text-align:center}
+    .ba-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .ba-card{background:#f3f4f6;border-radius:12px;aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;color:#9ca3af;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px}
+
+    .cta-wrap{text-align:center;padding:40px 24px}
+    .btn-cart{display:inline-block;background:linear-gradient(180deg,#22c55e 0%,#16a34a 100%);color:#fff;font-size:20px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:18px 60px;border-radius:12px;text-decoration:none;box-shadow:0 6px 20px rgba(34,197,94,0.35);transition:transform .2s,box-shadow .2s}
+    .btn-cart:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(34,197,94,0.45)}
+    .btn-cart:active{transform:translateY(0)}
+
+    /* Footer */
+    .site-footer{background:#f5f5f5;border-top:1px solid #e5e5e5;padding:28px 20px;text-align:center}
+    .site-footer .links{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;margin-bottom:14px;font-size:13px}
+    .site-footer .links a{color:#555;text-decoration:none}
+    .site-footer .links a:hover{color:#d32f2f;text-decoration:underline}
+    .site-footer .copy{font-size:12px;color:#888}
+
+    @media(max-width:640px){
+      .top-bar h1{font-size:18px;letter-spacing:2px}
+      .byline{font-size:12px}
+      .comments{padding:24px 12px 48px}
+      .comments-header{font-size:22px}
+      .comments-list{padding:14px 14px;border-radius:12px}
+      .avatar{width:42px;height:42px}
+      .comment.is-reply{margin-left:30px}
+      .comment-bubble{padding:10px 16px 14px}
+      .comment-meta{padding:0 16px}
+      .comment-text{font-size:13.5px}
+      .media-logos{gap:18px}
+      .media-logos img{height:26px}
+      .guarantee-inner{flex-direction:column;text-align:center;padding:32px 20px;gap:20px}
+      .guarantee-seal{width:110px;height:110px}
+      .doctor-bio .doctor-grid{grid-template-columns:1fr;gap:20px;text-align:center}
+      .doctor-bio img{width:220px;height:220px;margin:0 auto}
+      .doctor-bio h2{font-size:22px}
+      .before-after h2{font-size:22px}
+      .ba-grid{grid-template-columns:repeat(2,1fr)}
+      .btn-cart{display:block;font-size:17px;padding:16px 24px}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <h1>Santé</h1>
+  </div>
+  <div class="ticker">
+    <div class="ticker-track">
+      <span>Mises à jour quotidiennes sur le bien-être et la santé</span>
+      <span>Mises à jour quotidiennes sur le bien-être et la santé</span>
+      <span>Mises à jour quotidiennes sur le bien-être et la santé</span>
+      <span>Mises à jour quotidiennes sur le bien-être et la santé</span>
+      <span>Mises à jour quotidiennes sur le bien-être et la santé</span>
+      <span>Mises à jour quotidiennes sur le bien-être et la santé</span>
+    </div>
+  </div>
+
+  <!-- Byline -->
+  <div class="byline">
+    <span class="author">Dre. Claire Fontaine</span>
+    <span class="sep">•</span>
+    <span class="date" id="date">Mis à jour il y a 30 minutes</span>
+  </div>
+
+  <!-- Video -->
+  <div class="video-section">
+    <div class="video-container">
+      <vturb-smartplayer id="ab-PLACEHOLDER" style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>
+      <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/00c3b583-8874-4e64-a32e-65f6dd9ba521/ab-test/PLACEHOLDER/player.js", s.async=!0,document.head.appendChild(s); </script>
+    </div>
+  </div>
+
+  <!-- Media Logos -->
+  <div class="media-logos">
+    <span class="label">Comme vu à la télévision</span>
+    <img src="/vsl/media-logos/tf1.svg" alt="TF1" width="120" height="60">
+    <img src="/vsl/media-logos/bfmtv.svg" alt="BFMTV" width="160" height="60">
+    <img src="/vsl/media-logos/lefigaro.svg" alt="Le Figaro" width="200" height="60">
+    <img src="/vsl/media-logos/france2.svg" alt="France 2" width="160" height="60">
+  </div>
+
+  <!-- Comments (Facebook style — moves to bottom on post-pitch) -->
+  <section class="comments" id="comments-block">
+    <div class="comments-header">3 158 commentaires</div>
+    <div class="comments-list">
+
+      <div class="comment">
+        <img class="avatar" src="/vsl/avatars/01.jpg" alt="Sylvie Moreau" loading="lazy" width="50" height="50">
+        <div class="comment-body">
+          <div class="comment-bubble"><div class="comment-name">Sylvie Moreau</div><div class="comment-text">Je te jure que je pensais que c'était juste une de ces vidéos longues et chiantes. Bravo, Docteure Claire, de partager quelque chose qui MARCHE vraiment !</div><div class="comment-reactions"><span class="emoji like"><svg viewBox="0 0 24 24"><path d="M9 21h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2zM1 9h4v12H1z"/></svg></span><span class="emoji heart">❤</span><span class="count">52</span></div></div>
+          <div class="comment-meta"><span class="act">J'aime</span><span class="dot">·</span><span class="act">Répondre</span><span class="dot">·</span><span class="time">2 h</span></div>
+        </div>
+      </div>
+
+      <div class="comment is-reply">
+        <img class="avatar" src="/vsl/avatars/02.jpg" alt="Amélie Leroy" loading="lazy" width="50" height="50">
+        <div class="comment-body">
+          <div class="comment-bubble"><div class="comment-name">Amélie Leroy</div><div class="comment-text">La Docteure Claire est incroyable ! 👏</div><div class="comment-reactions"><span class="emoji like"><svg viewBox="0 0 24 24"><path d="M9 21h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2zM1 9h4v12H1z"/></svg></span><span class="emoji heart">❤</span><span class="count">38</span></div></div>
+          <div class="comment-meta"><span class="act">J'aime</span><span class="dot">·</span><span class="act">Répondre</span><span class="dot">·</span><span class="time">1 h</span></div>
+        </div>
+      </div>
+
+      <div class="comment is-reply">
+        <img class="avatar" src="/vsl/avatars/03.jpg" alt="Catherine Dubois" loading="lazy" width="50" height="50">
+        <div class="comment-body">
+          <div class="comment-bubble"><div class="comment-name">Catherine Dubois</div><div class="comment-text">Ce n'est pas juste une question de chiffres. Je me sens plus à l'aise avec moi-même, et c'est quelque chose que je n'avais pas ressenti depuis très longtemps.</div><div class="comment-reactions"><span class="emoji like"><svg viewBox="0 0 24 24"><path d="M9 21h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2zM1 9h4v12H1z"/></svg></span><span class="emoji heart">❤</span><span class="count">61</span></div></div>
+          <div class="comment-meta"><span class="act">J'aime</span><span class="dot">·</span><span class="act">Répondre</span><span class="dot">·</span><span class="time">1 h</span></div>
+        </div>
+      </div>
+
+      <div class="comment is-reply">
+        <img class="avatar" src="/vsl/avatars/04.jpg" alt="Nathalie Bernard" loading="lazy" width="50" height="50">
+        <div class="comment-body">
+          <div class="comment-bubble"><div class="comment-name">Nathalie Bernard</div><div class="comment-text">Haha, pareil pour moi ! Mon mari a cru que j'étais malade parce que d'un coup, je me suis mise à manger la moitié de ce que je mangeais avant 😂</div><div class="comment-reactions"><span class="emoji like"><svg viewBox="0 0 24 24"><path d="M9 21h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2zM1 9h4v12H1z"/></svg></span><span class="emoji heart">❤</span><span class="count">44</span></div></div>
+          <div class="comment-meta"><span class="act">J'aime</span><span class="dot">·</span><span class="act">Répondre</span><span class="dot">·</span><span class="time">1 h</span></div>
+        </div>
+      </div>
+
+      <div class="comment">
+        <img class="avatar" src="/vsl/avatars/05.jpg" alt="Suzy Laurent" loading="lazy" width="50" height="50">
+        <div class="comment-body">
+          <div class="comment-bubble"><div class="comment-name">Suzy Laurent</div><div class="comment-text">Je sais pas, les filles, c'est vrai ou c'est juste un coup marketing ?</div><div class="comment-reactions"><span class="emoji like"><svg viewBox="0 0 24 24"><path d="M9 21h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2zM1 9h4v12H1z"/></svg></span><span class="count">15</span></div></div>
+          <div class="comment-meta"><span class="act">J'aime</span><span class="dot">·</span><span class="act">Répondre</span><span class="dot">·</span><span class="time">55 min</span></div>
+        </div>
+      </div>
+
+      <div class="comment is-reply">
+        <img class="avatar" src="/vsl/avatars/06.jpg" alt="Isabelle Lefebvre" loading="lazy" width="50" height="50">
+        <div class="comment-body">
+          <div class="comment-bubble"><div class="comment-name">Isabelle Lefebvre</div><div class="comment-text">Suzy, j'étais hyper sceptique aussi, mais c'est réel. Essaye pendant quelques jours et tu verras. J'étais sous le choc de voir à quelle vitesse ça a marché pour moi.</div><div class="comment-reactions"><span class="emoji like"><svg viewBox="0 0 24 24"><path d="M9 21h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2zM1 9h4v12H1z"/></svg></span><span class="emoji heart">❤</span><span class="count">79</span></div></div>
+          <div class="comment-meta"><span class="act">J'aime</span><span class="dot">·</span><span class="act">Répondre</span><span class="dot">·</span><span class="time">42 min</span></div>
+        </div>
+      </div>
+
+      <div class="comment">
+        <img class="avatar" src="/vsl/avatars/07.jpg" alt="Caroline Girard" loading="lazy" width="50" height="50">
+        <div class="comment-body">
+          <div class="comment-bubble"><div class="comment-name">Caroline Girard</div><div class="comment-text">Au début, je n'étais pas sûre non plus, mais maintenant je me sens incroyable ! C'est comme si mon corps et mon esprit avaient appuyé sur le bouton reset, haha.</div><div class="comment-reactions"><span class="emoji like"><svg viewBox="0 0 24 24"><path d="M9 21h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2zM1 9h4v12H1z"/></svg></span><span class="emoji heart">❤</span><span class="count">36</span></div></div>
+          <div class="comment-meta"><span class="act">J'aime</span><span class="dot">·</span><span class="act">Répondre</span><span class="dot">·</span><span class="time">38 min</span></div>
+        </div>
+      </div>
+
+      <div class="comment">
+        <img class="avatar" src="/vsl/avatars/08.jpg" alt="Martine Rousseau" loading="lazy" width="50" height="50">
+        <div class="comment-body">
+          <div class="comment-bubble"><div class="comment-name">Martine Rousseau</div><div class="comment-text">Bravo, Docteure Claire ! Avec toutes les arnaques en ligne, c'est rare de tomber sur quelque chose de vraiment utile. Tu mérites tout ce succès et bien plus ! 👏👏</div><div class="comment-reactions"><span class="emoji like"><svg viewBox="0 0 24 24"><path d="M9 21h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2zM1 9h4v12H1z"/></svg></span><span class="emoji heart">❤</span><span class="count">87</span></div></div>
+          <div class="comment-meta"><span class="act">J'aime</span><span class="dot">·</span><span class="act">Répondre</span><span class="dot">·</span><span class="time">35 min</span></div>
+        </div>
+      </div>
+
+      <div class="comment">
+        <img class="avatar" src="/vsl/avatars/09.jpg" alt="Fatima Benali" loading="lazy" width="50" height="50">
+        <div class="comment-body">
+          <div class="comment-bubble"><div class="comment-name">Fatima Benali</div><div class="comment-text">Franchement, j'ai tout essayé — les méthodes, les astuces, les stratégies… mais rien n'a eu un impact aussi positif que ce que j'ai appris avec toi. Je me sens plus légère, j'ai plus d'énergie et je suis pleine de vie. Merci, Docteure Claire 🥰</div><div class="comment-reactions"><span class="emoji like"><svg viewBox="0 0 24 24"><path d="M9 21h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2zM1 9h4v12H1z"/></svg></span><span class="emoji heart">❤</span><span class="count">68</span></div></div>
+          <div class="comment-meta"><span class="act">J'aime</span><span class="dot">·</span><span class="act">Répondre</span><span class="dot">·</span><span class="time">28 min</span></div>
+        </div>
+      </div>
+
+      <div class="comment is-reply">
+        <img class="avatar" src="/vsl/avatars/10.jpg" alt="Valérie Petit" loading="lazy" width="50" height="50">
+        <div class="comment-body">
+          <div class="comment-bubble"><div class="comment-name">Valérie Petit</div><div class="comment-text">Ah oui, pareil pour moi ! J'en avais tellement marre des solutions rapides !</div><div class="comment-reactions"><span class="emoji like"><svg viewBox="0 0 24 24"><path d="M9 21h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2zM1 9h4v12H1z"/></svg></span><span class="count">22</span></div></div>
+          <div class="comment-meta"><span class="act">J'aime</span><span class="dot">·</span><span class="act">Répondre</span><span class="dot">·</span><span class="time">22 min</span></div>
+        </div>
+      </div>
+
+      <div class="comment">
+        <img class="avatar" src="/vsl/avatars/11.jpg" alt="Julie Mercier" loading="lazy" width="50" height="50">
+        <div class="comment-body">
+          <div class="comment-bubble"><div class="comment-name">Julie Mercier</div><div class="comment-text">J'ai essayé sans aucune attente, mais maintenant je suis sous le choc ! Juste une semaine et je me sens déjà comme une personne complètement nouvelle — je sais même pas ce qui se passe, je me laisse juste porter 😂</div><div class="comment-reactions"><span class="emoji like"><svg viewBox="0 0 24 24"><path d="M9 21h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2zM1 9h4v12H1z"/></svg></span><span class="emoji heart">❤</span><span class="count">41</span></div></div>
+          <div class="comment-meta"><span class="act">J'aime</span><span class="dot">·</span><span class="act">Répondre</span><span class="dot">·</span><span class="time">18 min</span></div>
+        </div>
+      </div>
+
+      <div class="comment">
+        <img class="avatar" src="/vsl/avatars/12.jpg" alt="Sandrine Garcia" loading="lazy" width="50" height="50">
+        <div class="comment-body">
+          <div class="comment-bubble"><div class="comment-name">Sandrine Garcia</div><div class="comment-text">Ça marche vraiment. Ça fait deux mois que je l'utilise et je me sens comme une NOUVELLE personne. Beaucoup moins de faim, moins de stress, moins d'envies de nourriture… ça a tout changé.</div><div class="comment-reactions"><span class="emoji like"><svg viewBox="0 0 24 24"><path d="M9 21h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2zM1 9h4v12H1z"/></svg></span><span class="emoji heart">❤</span><span class="count">53</span></div></div>
+          <div class="comment-meta"><span class="act">J'aime</span><span class="dot">·</span><span class="act">Répondre</span><span class="dot">·</span><span class="time">12 min</span></div>
+        </div>
+      </div>
+
+      <div class="comment">
+        <img class="avatar" src="/vsl/avatars/13.jpg" alt="Céline Martin" loading="lazy" width="50" height="50">
+        <div class="comment-body">
+          <div class="comment-bubble"><div class="comment-name">Céline Martin</div><div class="comment-text">J'ai commencé hier et je n'ai ABSOLUMENT pas faim. C'est littéralement comme appuyer sur un bouton 😅</div><div class="comment-reactions"><span class="emoji like"><svg viewBox="0 0 24 24"><path d="M9 21h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2zM1 9h4v12H1z"/></svg></span><span class="emoji heart">❤</span><span class="count">29</span></div></div>
+          <div class="comment-meta"><span class="act">J'aime</span><span class="dot">·</span><span class="act">Répondre</span><span class="dot">·</span><span class="time">8 min</span></div>
+        </div>
+      </div>
+
+      <div class="comment">
+        <img class="avatar" src="/vsl/avatars/14.jpg" alt="Aminata Diallo" loading="lazy" width="50" height="50">
+        <div class="comment-body">
+          <div class="comment-bubble"><div class="comment-name">Aminata Diallo</div><div class="comment-text">Docteure Claire, tu déchires à chaque fois et tu dis ce que personne d'autre n'ose dire ! Tu es mon inspiration ❤️ Je vais continuer à faire la recette parce que j'arrive enfin à remettre mes anciens vêtements, haha</div><div class="comment-reactions"><span class="emoji like"><svg viewBox="0 0 24 24"><path d="M9 21h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2zM1 9h4v12H1z"/></svg></span><span class="emoji heart">❤</span><span class="count">95</span></div></div>
+          <div class="comment-meta"><span class="act">J'aime</span><span class="dot">·</span><span class="act">Répondre</span><span class="dot">·</span><span class="time">5 min</span></div>
+        </div>
+      </div>
+
+      <div class="comment">
+        <img class="avatar" src="/vsl/avatars/15.jpg" alt="Jeanne Roy" loading="lazy" width="50" height="50">
+        <div class="comment-body">
+          <div class="comment-bubble"><div class="comment-name">Jeanne Roy</div><div class="comment-text">Merci infiniment, Docteure Claire ! Trois semaines et j'ai déjà perdu 4 kilos sans souffrir. Je n'arrive pas à y croire 🥲</div><div class="comment-reactions"><span class="emoji like"><svg viewBox="0 0 24 24"><path d="M9 21h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2zM1 9h4v12H1z"/></svg></span><span class="emoji heart">❤</span><span class="count">47</span></div></div>
+          <div class="comment-meta"><span class="act">J'aime</span><span class="dot">·</span><span class="act">Répondre</span><span class="dot">·</span><span class="time">3 min</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================
+       POST-PITCH (escondido até o delay)
+       Aparece quando: setTimeout PITCH_DELAY_MS OU evento vturb:cta
+       ===================================================== -->
+  <div class="post-pitch" id="post-pitch" hidden>
+
+    <!-- Garantia 90 dias -->
+    <section class="guarantee">
+      <div class="guarantee-inner">
+        <svg class="guarantee-seal" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="70" cy="70" r="66" fill="#16a34a"/>
+          <circle cx="70" cy="70" r="58" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="4 3"/>
+          <text x="70" y="56" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="14" fill="#fff" text-anchor="middle">SATISFACTION</text>
+          <text x="70" y="80" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="32" fill="#fff" text-anchor="middle">90</text>
+          <text x="70" y="98" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="14" fill="#fff" text-anchor="middle">JOURS</text>
+          <text x="70" y="115" font-family="Arial,sans-serif" font-weight="700" font-size="9" fill="#fff" text-anchor="middle">GARANTIE</text>
+        </svg>
+        <div class="guarantee-text">
+          <h2>Satisfaction 100% garantie ou argent remboursé.</h2>
+          <p><strong>Garantie inconditionnelle de 90 jours.</strong></p>
+          <p>Nous croyons en la qualité du Brûle 24h et en ses résultats, et nous voulons que tu te sentes en confiance dans ton achat. C'est pourquoi nous offrons une garantie de 90 jours à compter de la date d'achat. Si, pour quelque raison que ce soit, tu n'es pas satisfaite du produit, il te suffit de contacter notre équipe et nous nous ferons un plaisir de t'aider pour le remboursement.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quem é a Doutora -->
+    <section class="section doctor-bio">
+      <div class="doctor-grid">
+        <img src="/vsl/doctor.svg" alt="Dr. Claire Fontaine">
+        <div>
+          <h2>Qui est la Docteure Claire Fontaine ?</h2>
+          <p>La Docteure Claire Fontaine est nutritionniste et chercheuse en métabolisme féminin, diplômée de l'Université Paris-Saclay, avec une spécialisation en endocrinologie métabolique. Tout au long de sa carrière, elle a passé sept ans au service d'obésité de l'Hôpital Lariboisière, à Paris, à accompagner des femmes qui avaient tout essayé pour perdre du poids sans succès.</p>
+          <p>Durant cette période, elle s'est plongée dans l'étude du blocage métabolique féminin et a participé à des recherches sur les mécanismes hormonaux impliqués dans la résistance à la perte de poids chez les femmes de plus de 30 ans.</p>
+          <p>Son parcours a pris un tournant personnel lorsqu'elle a décidé d'explorer des méthodes naturelles de combustion des graisses pour aider sa sœur, Amélie, à surmonter son surpoids chronique et sa perte d'estime d'elle-même après sa deuxième grossesse. En s'appuyant sur ses observations concernant les habitudes alimentaires des populations du Pacifique et sur des études portant sur les triglycérides à chaîne moyenne (MCT), elle a mis au point le « Rituel Coco Matin », qui a donné naissance au programme Brûle 24h, axé sur la capacité à induire une cétose forcée naturelle sans aucune restriction alimentaire.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Antes / Depois -->
+    <section class="section before-after">
+      <h2>Avant et Après</h2>
+      <div class="ba-grid">
+        <div class="ba-card">Image à venir</div>
+        <div class="ba-card">Image à venir</div>
+        <div class="ba-card">Image à venir</div>
+        <div class="ba-card">Image à venir</div>
+        <div class="ba-card">Image à venir</div>
+        <div class="ba-card">Image à venir</div>
+      </div>
+    </section>
+
+    <!-- Botão verde -->
+    <div class="cta-wrap">
+      <a class="btn-cart" href="#">Ajouter au panier !</a>
+    </div>
+
+    <!-- Garantia repetida -->
+    <section class="guarantee">
+      <div class="guarantee-inner">
+        <svg class="guarantee-seal" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="70" cy="70" r="66" fill="#16a34a"/>
+          <circle cx="70" cy="70" r="58" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="4 3"/>
+          <text x="70" y="56" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="14" fill="#fff" text-anchor="middle">SATISFACTION</text>
+          <text x="70" y="80" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="32" fill="#fff" text-anchor="middle">90</text>
+          <text x="70" y="98" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="14" fill="#fff" text-anchor="middle">JOURS</text>
+          <text x="70" y="115" font-family="Arial,sans-serif" font-weight="700" font-size="9" fill="#fff" text-anchor="middle">GARANTIE</text>
+        </svg>
+        <div class="guarantee-text">
+          <h2>Satisfaction 100% garantie ou argent remboursé.</h2>
+          <p><strong>Garantie inconditionnelle de 90 jours.</strong></p>
+          <p>Nous croyons en la qualité du Brûle 24h et en ses résultats, et nous voulons que tu te sentes en confiance dans ton achat. C'est pourquoi nous offrons une garantie de 90 jours à compter de la date d'achat. Si, pour quelque raison que ce soit, tu n'es pas satisfaite du produit, il te suffit de contacter notre équipe et nous nous ferons un plaisir de t'aider pour le remboursement.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="links">
+      <a href="/privacy-policy/">Politique de confidentialité</a>
+      <a href="/terms-of-use/">Conditions d'utilisation</a>
+      <a href="/refund-policy/">Politique de remboursement</a>
+      <a href="/contact/">Contact</a>
+      <a href="/imprint/">Mentions légales</a>
+    </div>
+    <div class="copy">&copy; 2026 Le Brûle 24h. Tous droits réservés.</div>
+  </footer>
+
+  <!-- Date Script -->
+  <script>
+    (function(){
+      var n=new Date();
+      var m=['01','02','03','04','05','06','07','08','09','10','11','12'];
+      var el=document.getElementById('date');
+      if(el) el.textContent='Mis à jour le '+n.getDate().toString().padStart(2,'0')+'.'+m[n.getMonth()]+'.'+n.getFullYear();
+    })();
+  </script>
+
+  <!-- ===========================================================
+       DELAY DO PITCH — quando o vídeo entrega o pitch, mostra as
+       dobras de venda e move os comentários pra depois delas.
+       =========================================================== -->
+  <script>
+    (function(){
+      // === EDITAR QUANDO A VSL FICAR PRONTA ===
+      var PITCH_DELAY_MS = 30 * 60 * 1000; // 30 minutos (default)
+
+      var revealed = false;
+      function revealPostPitch(){
+        if (revealed) return;
+        revealed = true;
+        var comments  = document.getElementById('comments-block');
+        var postPitch = document.getElementById('post-pitch');
+        var footer    = document.querySelector('.site-footer');
+        if (!postPitch || !comments || !footer) return;
+
+        postPitch.hidden = false;
+        // força reflow antes da transição
+        void postPitch.offsetWidth;
+        postPitch.classList.add('is-visible');
+        // move o bloco de comentários pra antes do footer
+        footer.parentNode.insertBefore(comments, footer);
+      }
+
+      setTimeout(revealPostPitch, PITCH_DELAY_MS);
+      window.addEventListener('vturb:cta', revealPostPitch, { once: true });
+      // expõe pra teste manual no console: window.__revealPitch()
+      window.__revealPitch = revealPostPitch;
+    })();
+  </script>
+
+  <!-- Pixel UTMify (TODO: trocar pelo pixel real) -->
+  <script>
+    window.pixelId = "PLACEHOLDER_PIXEL";
+    var a = document.createElement("script");
+    a.setAttribute("async","");
+    a.setAttribute("defer","");
+    a.setAttribute("src","https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+    document.head.appendChild(a);
+  </script>
+  <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
+
+</body>
+</html>
