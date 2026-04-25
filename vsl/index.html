@@ -396,35 +396,109 @@
   </script>
 
   <!-- ===========================================================
-       DELAY DO PITCH — quando o vídeo entrega o pitch, mostra as
-       dobras de venda e move os comentários pra depois delas.
+       PITCH REVEAL — funciona com qualquer variação de A/B.
+       3 mecanismos rodam em paralelo + teto de segurança.
+       Quem disparar primeiro vence (idempotente).
        =========================================================== -->
   <script>
     (function(){
-      // === EDITAR QUANDO A VSL FICAR PRONTA ===
-      var PITCH_DELAY_MS = 30 * 60 * 1000; // 30 minutos (default)
+      // Tempo máximo de segurança (caso nada dispare)
+      var SAFETY_MAX_DELAY_MS = 35 * 60 * 1000; // 35 min
+
+      // Seletores de botão de compra/CTA (cobertura ampla)
+      var CTA_SELECTORS = [
+        'button[class*="cta" i]','a[class*="cta" i]',
+        'button[class*="buy" i]','a[class*="buy" i]',
+        'button[class*="offer" i]','a[class*="offer" i]',
+        '[data-action="cta"]','[id*="cta" i]',
+        'a[href*="checkout"]','a[href*="buy"]','a[href*="pay"]'
+      ].join(',');
+
+      // Eventos do VTurb que podem indicar o pitch (cobertura ampla)
+      var EVENT_NAMES = [
+        'vturb:cta','vturb:pitch','vturb:offer','vturb:reveal','vturb:show_cta',
+        'smartplayer:cta','smartplayer:pitch','smartplayer:offer','smartplayer:show_cta',
+        'cta:show','pitch:show','offer:show','show_cta','show_pitch'
+      ];
 
       var revealed = false;
-      function revealPostPitch(){
+      var observer = null;
+      var pollInt = null;
+      var attachInt = null;
+
+      function cleanup(){
+        try { if (observer) observer.disconnect(); } catch(_){}
+        try { if (pollInt) clearInterval(pollInt); } catch(_){}
+        try { if (attachInt) clearInterval(attachInt); } catch(_){}
+        EVENT_NAMES.forEach(function(n){
+          try { window.removeEventListener(n, onEvent); } catch(_){}
+          try { document.removeEventListener(n, onEvent); } catch(_){}
+        });
+      }
+
+      function revealPostPitch(source){
         if (revealed) return;
         revealed = true;
+        try { console.info('[pitch] revealed via', source); } catch(_){}
         var comments  = document.getElementById('comments-block');
         var postPitch = document.getElementById('post-pitch');
         var footer    = document.querySelector('.site-footer');
-        if (!postPitch || !comments || !footer) return;
-
+        if (!postPitch || !comments || !footer) return cleanup();
         postPitch.hidden = false;
-        // força reflow antes da transição
-        void postPitch.offsetWidth;
+        void postPitch.offsetWidth; // força reflow pra transição
         postPitch.classList.add('is-visible');
-        // move o bloco de comentários pra antes do footer
         footer.parentNode.insertBefore(comments, footer);
+        cleanup();
       }
 
-      setTimeout(revealPostPitch, PITCH_DELAY_MS);
-      window.addEventListener('vturb:cta', revealPostPitch, { once: true });
-      // expõe pra teste manual no console: window.__revealPitch()
-      window.__revealPitch = revealPostPitch;
+      // ============ Mecanismo 1: eventos do VTurb ============
+      function onEvent(e){ revealPostPitch('event:' + e.type); }
+      EVENT_NAMES.forEach(function(n){
+        window.addEventListener(n, onEvent);
+        document.addEventListener(n, onEvent);
+      });
+
+      // ============ Mecanismo 2: MutationObserver ============
+      function checkRoots(roots){
+        for (var i=0; i<roots.length; i++){
+          var r = roots[i];
+          if (r && r.querySelector && r.querySelector(CTA_SELECTORS)) return true;
+        }
+        return false;
+      }
+      function observePlayer(player){
+        var roots = [player];
+        if (player.shadowRoot) roots.push(player.shadowRoot);
+        if (checkRoots(roots)) return revealPostPitch('mutation:initial');
+        observer = new MutationObserver(function(){
+          if (checkRoots(roots)) revealPostPitch('mutation');
+        });
+        roots.forEach(function(r){
+          try { observer.observe(r, { childList:true, subtree:true }); } catch(_){}
+        });
+      }
+      function tryAttach(){
+        var player = document.querySelector('vturb-smartplayer');
+        if (player){ observePlayer(player); return true; }
+        return false;
+      }
+      if (!tryAttach()){
+        attachInt = setInterval(function(){
+          if (revealed || tryAttach()) clearInterval(attachInt);
+        }, 500);
+      }
+
+      // ============ Mecanismo 3: polling global ============
+      pollInt = setInterval(function(){
+        if (revealed) return clearInterval(pollInt);
+        if (document.querySelector(CTA_SELECTORS)) revealPostPitch('poll');
+      }, 1500);
+
+      // ============ Mecanismo 4: teto de segurança ============
+      setTimeout(function(){ revealPostPitch('safety'); }, SAFETY_MAX_DELAY_MS);
+
+      // teste manual no console: window.__revealPitch()
+      window.__revealPitch = function(){ revealPostPitch('manual'); };
     })();
   </script>
 
